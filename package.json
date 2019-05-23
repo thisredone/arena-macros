@@ -1,0 +1,16 @@
+{
+  "name": "babel-plugin-arena-macros",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "macro.js"
+  ],
+  "author": "redka",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "babel-plugin-macros": "^2.2.1",
+    "require-from-string": "^2.0.2"
+  }
+}
