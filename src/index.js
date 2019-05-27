@@ -6,7 +6,7 @@ module.exports = codegenPlugin
 function codegenPlugin(babel) {
   const {asProgram, asIdentifier, asImportDeclaration} = getReplacers(babel)
   return {
-    name: 'arena-event-from-string',
+    name: 'arena-macros',
     visitor: {
       Program(
         path,

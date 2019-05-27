@@ -36,9 +36,8 @@ function getReplacement({code, fileOpts, args = []}, babel) {
     )
   }
 
-  // Convert whatever we got now (hopefully a string) into AST form
   if (typeof module !== 'string') {
-    throw new Error('codegen: Must module.exports a string.')
+    module = code;
   }
   return babel.template(module, {
     preserveComments: true,

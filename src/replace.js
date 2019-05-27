@@ -126,11 +126,13 @@ function getReplacers(babel) {
     const args = fields.map((_, i) => `arg${ i }`).join(', ');
     const pack = fields.map((f, i) => `bb.${ f }(arg${ i })`).join('.');
     const unpack = fields.map(f => `br.${ f }()`).join(', ');
-    const code = `(a = {
+    const code = `const a = {
       size: ${ size },
       pack: ([${ args }], bb) => ${ pack },
       unpack: (type, br) => [type, ${ unpack }]
-    });`
+    };
+    module.exports = a;
+    `
     replace({path, code, fileOpts}, babel)
   }
 
