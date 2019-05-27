@@ -124,11 +124,11 @@ function getReplacers(babel) {
     const fields = str.split(' ');
     const size = fields.reduce(((s, f) => s + f.match(/\d+/)[0] / 8), 1);
     const args = fields.map((_, i) => `arg${ i }`).join(', ');
-    const pack = fields.map((f, i) => `bb.${ f }(arg${ i })`).join('.');
+    const pack = fields.map((f, i) => `${ f }(arg${ i })`).join('.');
     const unpack = fields.map(f => `br.${ f }()`).join(', ');
     const code = `const a = {
       size: ${ size },
-      pack: ([${ args }], bb) => ${ pack },
+      pack: ([${ args }], bb) => bb.${ pack },
       unpack: (type, br) => [type, ${ unpack }]
     };
     module.exports = a;
